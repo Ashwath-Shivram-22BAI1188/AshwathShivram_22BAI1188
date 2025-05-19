@@ -1,0 +1,26 @@
+show databases;
+create database vit;
+use vit;
+CREATE TABLE vit_chennai (
+    full_name VARCHAR(100),
+    reg_no VARCHAR(20) PRIMARY KEY,
+    school VARCHAR(100),
+    graduation_year INT
+);
+INSERT INTO vit_chennai (full_name, reg_no, school, graduation_year) VALUES
+('Rohit Anand', '22BCE1101', 'School of Computer Science', 2026),
+('Rohan Gupta', '22BCE1102', 'School of Computer Science', 2026),
+('Shawn Fernandes', '22BCE1103', 'School of Computer Science', 2026),
+('Arvind Sharma', '20BCE1104', 'School of Computer Science', 2024);
+INSERT INTO vit_chennai (full_name, reg_no, school, graduation_year) VALUES
+('Prateek Naik', '21BCE1005', 'School of Computer Science', 2025),
+('Karan Raj', '21BCE1106', 'School of Computer Science', 2025),
+('Ashraf Khan', '20BCE1107', 'School of Computer Science', 2024),
+('Arhan Das', '22CIV1108', 'School of Civil Engineering', 2026),
+('Daksh Singh', '21BCE1109', 'School of Computer Science', 2025);
+select * from vit_chennai;
+alter table vit_chennai add(phone varchar(10));
+desc vit_chennai;
+alter table vit_chennai drop column phone;
+alter table vit_chennai add(s_country varchar(10) default 'India');
+update vit_chennai set full_name='Ashwath Shivram' WHERE full_name='Rohan Gupta';
