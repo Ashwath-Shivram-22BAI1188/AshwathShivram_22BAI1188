@@ -1,0 +1,22 @@
+<h2>Welcome, {{ session['username'] }}</h2>
+<a href="/logout">Logout</a>
+<h3>Add a book:</h3>
+<form method="POST" action="/add">
+  ISBN: <input name="isbn"><br>
+  Title: <input name="title"><br>
+  <button type="submit">Add Book</button>
+</form>
+
+<h3>Your books:</h3>
+<ul>
+{% for book in books %}
+  <li>
+    {{ book['isbn'] }} - {{ book['title'] }}
+    <form method="POST" action="/update/{{ book['isbn'] }}" style="display:inline;">
+      New Title: <input name="new_title">
+      <button type="submit">Update</button>
+    </form>
+    <a href="/delete/{{ book['isbn'] }}">Delete</a>
+  </li>
+{% endfor %}
+</ul>
